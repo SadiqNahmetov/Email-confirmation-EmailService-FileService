@@ -1,0 +1,56 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_AccessoriesLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center my-4">
+
+        <div class="input-area">
+            <div class="text-danger mb-2" asp-validation-summary="All"></div>
+            <h3 style="text-align:center; color:maroon">Register</h3>
+            <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label asp-for="Fullname" class="form-label">Full name</label>
+                    <input class="form-control" autocomplete="off" asp-for="Fullname">
+                    <span class="text-danger"asp-validation-for="Fullname"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input class="form-control" asp-for="Email">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label">Username</label>
+                    <input class="form-control"  autocomplete="off" asp-for="Username">
+                    <span class="text-danger" asp-validation-for="Username"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input class="form-control" asp-for="Password">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="ConfirimPassword">Confirm Password</label>
+                    <input class="form-control" asp-for="ConfirimPassword">
+                    <span class="text-danger" asp-validation-for="ConfirimPassword"></span>
+                </div>
+                <div class="register-btn d-flex justify-content-center" style="width: 100%;">
+                    <button type="submit" style="background-color:darkslategray" class="btn btn-primary">Register</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+}
+

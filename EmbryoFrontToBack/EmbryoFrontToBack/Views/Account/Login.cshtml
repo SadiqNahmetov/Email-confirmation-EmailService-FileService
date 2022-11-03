@@ -1,0 +1,42 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AccessoriesLayout.cshtml";
+}
+
+<div class="container my-3">
+    <div class="row d-flex justify-content-center my-3">
+
+        <div class="input-area">
+            <div class="text-danger mb-2" asp-validation-summary="All"></div>
+            <h3 style="text-align:center; color:maroon">Login</h3>
+            <form asp-controller="Account" asp-action="Login" method="post" enctype="multipart/form-data">
+              
+                <div class="mb-3">
+                    <label asp-for="UsernameOrEmail" class="form-label">Email or username</label>
+                    <input class="form-control" asp-for="UsernameOrEmail">
+                    <span class="text-danger" asp-validation-for="UsernameOrEmail"></span>
+                </div>
+               
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input class="form-control" asp-for="Password">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+               
+                <div class="register-btn d-flex justify-content-center" style="width: 100%;">
+                    <button type="submit" style="background-color:darkslategray" class="btn btn-primary">Login</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+}
