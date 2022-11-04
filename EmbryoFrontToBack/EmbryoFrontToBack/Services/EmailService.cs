@@ -29,6 +29,7 @@ namespace EmbryoFrontToBack.Services
         email.Subject = subject;
         email.Body = new TextPart(TextFormat.Html) { Text = body };
 
+
         // send email
         using var smtp = new SmtpClient();
         smtp.Connect(Configuration.GetSection("Smtp:Server").Value, int.Parse(Configuration.GetSection("Smtp:Port").Value), SecureSocketOptions.StartTls);
